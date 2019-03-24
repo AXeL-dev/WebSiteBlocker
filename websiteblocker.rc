@@ -1,0 +1,52 @@
+//=============================================================================
+// Projet : WebSiteBlocker
+// Fichier : websiteblocker.rc
+//
+//=============================================================================
+
+#include "resources.h"
+
+
+//=============================================================================
+//                        Icones de l'application
+//=============================================================================
+
+IDI_ICONE ICON DISCARDABLE "icones/weblock.ico"
+
+IDI_ICONE2 ICON DISCARDABLE "icones/internet.ico"
+
+//=============================================================================
+//                              Style XP
+//=============================================================================
+
+1 24 "manifest_admin.xml"
+
+//=============================================================================
+//                        DialogBox principale
+//=============================================================================
+
+DLGPRC DIALOGEX 0, 0, 300, 150
+CAPTION NOM_APP
+FONT 10, "tahoma", 700, 0
+STYLE  DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_OVERLAPPED | WS_SYSMENU | WS_MINIMIZEBOX
+BEGIN
+     LISTBOX LISTE_SITES, 5, 5, 185, 140, WS_VSCROLL // | WS_HSCROLL // | LBS_DISABLENOSCROLL
+     DEFPUSHBUTTON "Bloquer un site web", BT_BLOQUER, 195, 5, 100, 25, BS_CENTER
+     PUSHBUTTON "Débloquer un site web", BT_DEBLOQUER, 195, 35, 100, 25, BS_CENTER
+     PUSHBUTTON "A Propos ?", BT_APROPOS, 195, 108, 100, 15
+     PUSHBUTTON "Quitter", BT_QUITTER, 195, 128, 100, 15
+END
+
+//=============================================================================
+//                        DialogBox bloquer site
+//=============================================================================
+
+DLGBLOQUER DIALOGEX 0, 0, 200, 35
+CAPTION "Bloquer un site web"
+FONT 10, "tahoma", 700, 0
+STYLE  DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_OVERLAPPED | WS_SYSMENU
+BEGIN
+     LTEXT "Exemple : 127.0.0.1 www.google.com", -1, 6, 5, 150, 10
+     EDITTEXT IDE_SITE_WEB, 5, 18, 150, 12, ES_AUTOHSCROLL
+     DEFPUSHBUTTON "Ok", BT_OK, 160, 18, 35, 12
+END
